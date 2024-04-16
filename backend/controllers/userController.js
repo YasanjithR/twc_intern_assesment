@@ -71,9 +71,8 @@ const login = async(req,res)=>{
             return res.status(500).json({msg:"Invalid password"})
         }
 
-        const token = createToken(user)       
+        const token = createToken(user)   
         res.status(200).json({token,email})
-        res.status(200).json({msg:"Log in succesful"})
 
 
 

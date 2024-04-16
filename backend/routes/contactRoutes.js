@@ -1,12 +1,12 @@
 const express = require('express')
 const router = express.Router()
-
+const {auth} = require('../middleware/middleware')
 const {createcontact,getContacts,getAContact,deleteContact,updateContact} = require('../controllers/contactController')
 
-router.post('/new',createcontact)
-router.get('/',getContacts)
-router.get('/:id',getAContact)
-router.delete('/delete/:id',deleteContact)
-router.patch('/update/:id',updateContact)
+router.post('/new',auth,createcontact)
+router.get('/',auth,getContacts)
+router.get('/:id',auth,getAContact)
+router.delete('/delete/:id',auth,deleteContact)
+router.patch('/update/:id',auth,updateContact)
 
 module.exports = router
