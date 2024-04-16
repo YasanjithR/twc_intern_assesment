@@ -2,7 +2,8 @@ const express = require ("express");
 const mongoose = require("mongoose");
 const bodyParser = require ("body-parser");
 const cors = require("cors");
-
+const userRoutes = require('./routes/userRoutes')
+const contactRoutes = require('./routes/contactRoutes')
 
 const app = express();
 require("dotenv").config();
@@ -14,6 +15,8 @@ const PORT = process.env.PORT || 8070;
 
 app.use(cors());
 app.use(bodyParser.json());
+app.use('/user',userRoutes)
+app.use('/contact',contactRoutes)
 
 
 const URL = process.env.MONGO_URI;
